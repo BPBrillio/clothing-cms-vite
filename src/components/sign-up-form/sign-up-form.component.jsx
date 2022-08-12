@@ -6,6 +6,10 @@ import {
   signInWithGoogleRedirect,
   createAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
+import "./sign-up-form.styles.scss";
+
+import FormInput from "../form-input/form-input.component";
+import Button from "../button/button.component";
 
 const defaultFormFields = {
   displayName: "",
@@ -54,41 +58,39 @@ const SignUpForm = () => {
   };
   return (
     <>
-      <h1>Sign up with your email and password</h1>
+    <h2>Don't have account?</h2>
+      <p>Sign up with your email and password</p>
       <form onSubmit={handleSubmit}>
-        <label>Display Name</label>
-        <input
-          type="text"
+        <FormInput type="text"
+          label="Display Name"
           name="displayName"
           value={displayName}
           onChange={handleChange}
-          required
-        />
-        <label>Email</label>
-        <input
+          required />
+        <FormInput
+          label="Email"
           type="email"
           name="email"
           value={email}
           onChange={handleChange}
-          required
-        />
-        <label>Password</label>
-        <input
+          required />
+        <FormInput
+          label="Password"
           type="password"
           name="password"
           value={password}
           onChange={handleChange}
           required
         />
-        <label>Confirm Password</label>
-        <input
+        <FormInput
+          label="Confirm Password"
           type="password"
           name="confirmPassword"
           value={confirmPassword}
           onChange={handleChange}
           required
         />
-        <button type="submit">Sign Up</button>
+        <Button buttonType="google" type="submit">Sign Up</Button>
       </form>
     </>
   );
